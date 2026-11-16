@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" width="40" height="40" role="img" aria-label="牧之安 MUZHIAN">
+  <rect x="0.5" y="0.5" width="39" height="39" rx="2.5" fill="#171714"/>
+  <path d="M8.5 30V18L20 9l11.5 9v12" fill="none" stroke="#f3efe6" stroke-width="1.4"/>
+  <path d="M8.5 30h23" fill="none" stroke="#f3efe6" stroke-width="1.4"/>
+  <circle cx="20" cy="23" r="3.6" fill="#d1492a"/>
+</svg>
