@@ -1,0 +1,72 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import site from "../../data/site.json";
+
+const inquiryTypes = [
+  { index: "01", title: "品牌与视觉", body: "品牌定位、命名、视觉识别与内容系统。" },
+  { index: "02", title: "数字体验", body: "网站、产品界面、交互原型与前端实现。" },
+  { index: "03", title: "软件与工具", body: "Windows 工具、Web 应用与内部效率产品。" },
+  { index: "04", title: "空间与展览", body: "策展叙事、展陈视觉、导视与空间体验。" }
+];
+---
+<BaseLayout
+  page="contact"
+  title="联系｜牧之安 MUZHIAN"
+  description="联系牧之安：品牌、视觉、数字体验、软件与空间项目咨询。"
+>
+  <section class="page-hero">
+    <div class="wrap page-hero-grid">
+      <p class="section-label">CONTACT / 联系</p>
+      <div>
+        <p class="breadcrumb"><a href="/">首页</a><span class="sep">/</span><span>联系</span></p>
+        <h1>有一个想法，<br><em>我们聊聊。</em></h1>
+        <p class="page-hero-sub">
+          无论是一个完整的品牌项目，还是一次尚未成形的尝试，都欢迎写信给我们。
+          请简单说说你的想法、时间与预算，我们会尽快回复。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap contact-grid">
+      <div>
+        <div class="contact-email">
+          <a href={`mailto:${site.email}`}>{site.email}</a>
+          <button class="copy-btn" type="button" data-copy={site.email}>复制</button>
+        </div>
+        <dl class="contact-list">
+          <div><dt>地址</dt><dd>{site.address}</dd></div>
+          <div><dt>网站</dt><dd><a href="https://www.shmuzhian.cn">www.shmuzhian.cn</a></dd></div>
+          <div><dt>状态</dt><dd>{site.availability}</dd></div>
+        </dl>
+        <p class="contact-copy">
+          我们通常会在 1–3 个工作日内回复。如果项目时间较紧，请在邮件标题里注明「时间敏感」。
+        </p>
+      </div>
+      <div>
+        <div class="capability-list" style="border-top:1px solid var(--line-strong);">
+          {inquiryTypes.map((item) => (
+            <div class="capability-row" style="grid-template-columns: 36px 1fr 1.4fr 0 0; padding: 20px 0;">
+              <span class="capability-index">{item.index}</span>
+              <h3 class="capability-title" style="font-size: 22px;">{item.title}</h3>
+              <p class="capability-desc" style="font-size: 12px;">{item.body}</p>
+              <span></span>
+              <span></span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="software-cta">
+    <div class="wrap software-cta-inner">
+      <div>
+        <h2>不用把提案<br>想得很完整。</h2>
+        <p class="head-note">一句问题、一个链接、几张参考图，都可以作为开始。</p>
+      </div>
+      <a class="btn btn--fill" href={`mailto:${site.email}`}>写信给我们 <span class="arrow" aria-hidden="true">↗</span></a>
+    </div>
+  </section>
+</BaseLayout>

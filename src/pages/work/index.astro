@@ -1,0 +1,103 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ProjectCard from "../../components/ProjectCard.astro";
+import casesData from "../../data/cases.json";
+import softwareData from "../../data/software.json";
+
+const cases = (casesData as any[])
+  .filter((item) => item.published !== false)
+  .map((item) => ({
+    kind: "case",
+    title: item.title,
+    href: `/work/${item.slug}/`,
+    category: item.category || "项目",
+    year: item.year || "",
+    summary: item.summary || "",
+    cover: item.cover || "",
+    sort: item.order ?? 10,
+  }));
+
+const software = (softwareData as any[])
+  .filter((item) => item.published !== false)
+  .map((item) => ({
+    kind: "software",
+    title: item.name,
+    href: `/services/software/${item.slug}/`,
+    category: "数字产品",
+    year: item.releaseDate || "",
+    summary: item.tagline || item.summary || "",
+    cover: item.cover || "",
+    sort: item.order ?? 10,
+  }));
+
+const items = [...cases, ...software].sort((a, b) => a.sort - b.sort);
+const categories = ["全部", ...Array.from(new Set(items.map((item) => item.category)))];
+---
+<BaseLayout
+  page="work"
+  title="案例｜牧之安 MUZHIAN"
+  description="牧之安精选案例：品牌策略、视觉设计、数字体验、空间叙事，以及设计驱动的数字产品。"
+>
+  <section class="page-hero">
+    <div class="wrap page-hero-grid">
+      <p class="section-label">WORK / 档案</p>
+      <div>
+        <p class="breadcrumb"><a href="/">首页</a><span class="sep">/</span><span>案例</span></p>
+        <h1>做过的事，<br>让它们<em>自己说话</em>。</h1>
+        <p class="page-hero-sub">
+          品牌、视觉、数字体验与空间叙事。这里收录我们与客户一起完成的项目，
+          以及一些从自身需要出发的自研尝试。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="work-toolbar">
+        <div class="filters" aria-label="案例筛选">
+          {categories.map((category, index) => (
+            <button class:list={["filter-btn", { "is-active": index === 0 }]} type="button" data-filter={category}>
+              {category}
+            </button>
+          ))}
+        </div>
+        <p class="work-count" id="work-count" aria-live="polite">{items.length.toString().padStart(2, "0")} PROJECTS</p>
+      </div>
+
+      {items.length > 0 ? (
+        <div class:list={["work-grid", { "work-grid--single": items.length === 1 }]} id="work-grid">
+          {items.map((item) => (
+            <div data-project data-category={item.category}>
+              <ProjectCard
+                title={item.title}
+                href={item.href}
+                category={item.category}
+                year={item.year}
+                summary={item.summary}
+                cover={item.cover}
+              />
+            </div>
+          ))}
+        </div>
+      ) : (
+        <div class="work-empty">
+          <p class="eyebrow">WORK IN PROGRESS</p>
+          <h2>案例正在整理中。</h2>
+          <p>新的项目记录会陆续出现在这里。如果你想了解我们做过什么，欢迎直接写信聊聊。</p>
+          <a class="text-link" href="/contact/">联系我们 <span class="arrow" aria-hidden="true">↗</span></a>
+        </div>
+      )}
+
+      <div class="work-empty" id="work-filter-empty" hidden>
+        <p class="eyebrow">NO RESULTS</p>
+        <h2>这个类别暂时没有案例。</h2>
+        <p>换一个类别看看，或者直接联系我们了解相关项目。</p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  import "../../scripts/work-filter.js";
+</script>

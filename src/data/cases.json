@@ -1,0 +1,112 @@
+[
+  {
+    "title": "上海工业博物馆",
+    "slug": "shanghai-industrial-museum",
+    "category": "空间",
+    "client": "上海工业博物馆",
+    "year": "2024—2025",
+    "services": ["展陈策划", "空间叙事", "视觉系统", "多媒体"],
+    "summary": "以「再现江南」为叙事母题，把上海工业的船坞、机械与城市记忆，组织成一条可以漫游的博物馆路径。",
+    "cover": "/assets/work/hongtu/04.jpg",
+    "challenge": "工业遗产的信息密度高、空间尺度大。展览既需要专业的历史线索，也要让普通观众愿意停下来看，而不是在一件件机器前快速走过。",
+    "approach": "从江南制造的历史语境出发，将内容拆成序章与五个章节。以暗色空间、金属与夯土材料承载展品，用局部暖光和数字影像建立节奏，让机器、船舶与钢铁重新成为叙事主角。",
+    "result": "形成从空间概念、展陈视觉到多媒体节点的整体方案，为后续深化设计建立统一的叙事框架。",
+    "gallery": [
+      "/assets/work/hongtu/01.jpg",
+      "/assets/work/hongtu/02.jpg",
+      "/assets/work/hongtu/03.jpg",
+      "/assets/work/hongtu/04.jpg"
+    ],
+    "featured": true,
+    "order": 1,
+    "published": true
+  },
+  {
+    "title": "考拉悠然企业展示中心",
+    "slug": "koala-uran-city",
+    "category": "数字",
+    "client": "考拉悠然",
+    "year": "2024",
+    "services": ["企业展示中心", "空间设计", "数字体验", "多媒体集成"],
+    "summary": "把「AI 未来之城」从一句品牌愿景，变成一条可以进入、可以交互的参观路径。",
+    "cover": "/assets/work/koala/01.jpg",
+    "challenge": "AI 技术本身抽象，企业展示中心容易变成设备与屏幕的堆叠。需要在有限空间里建立清晰的认知路径，同时避免落入常见的科技蓝展厅。",
+    "approach": "以「基因、引擎、万象、生态」四个关键词组织展项，用深蓝光域、数据流、实体模型与大面积留白控制信息密度；从入口形象到核心大模型展项，形成连续的未来城市叙事。",
+    "result": "完成空间与数字内容的整体概念方案，建立一套可以复用的展项界面与视觉语言。",
+    "gallery": [
+      "/assets/work/koala/01.jpg",
+      "/assets/work/koala/02.jpg",
+      "/assets/work/koala/03.jpg",
+      "/assets/work/koala/04.jpg"
+    ],
+    "featured": true,
+    "order": 2,
+    "published": true
+  },
+  {
+    "title": "串场河主题展馆",
+    "slug": "chuanchanghe-pavilion",
+    "category": "空间",
+    "client": "串场河主题展馆",
+    "year": "2022—2023",
+    "services": ["展馆策划", "空间叙事", "数字体验", "视觉系统"],
+    "summary": "以一条河的时间为线索，把串场河的水利、盐业与城市生活，编成一座可以行走的展馆。",
+    "cover": "/assets/work/chuanchanghe/01.jpg",
+    "challenge": "河流的历史横跨水利、盐运、聚落与当代生活，展馆需要在有限空间里建立一条不碎、不闷的叙事主线。",
+    "approach": "用「千年一河，串场新生」作为总题，以水流的曲线组织空间；蓝色波纹、盐晶、船影与数字水幕构成连续段落，让观众从「治水」走到「用水」，再到「与水共生」。",
+    "result": "形成从空间策划到数字展项的完整概念方案，为后续深化设计建立统一的叙事与视觉框架。",
+    "gallery": [
+      "/assets/work/chuanchanghe/01.jpg",
+      "/assets/work/chuanchanghe/02.jpg",
+      "/assets/work/chuanchanghe/03.jpg",
+      "/assets/work/chuanchanghe/04.jpg"
+    ],
+    "featured": true,
+    "order": 3,
+    "published": true
+  },
+  {
+    "title": "宁富食品企业展示中心",
+    "slug": "ningfu-food-showroom",
+    "category": "空间",
+    "client": "宁富食品",
+    "year": "2023",
+    "services": ["企业展厅", "空间设计", "展陈视觉", "深化设计"],
+    "summary": "把一颗蔬菜的生长、加工与味道，做成一条从田野到餐桌的参观路径。",
+    "cover": "/assets/work/ningfu/02.jpg",
+    "challenge": "食品企业的展示容易停留在产品陈列。需要让「新鲜、健康、可追溯」变成可以被感知的空间体验，而不是墙上的几句标语。",
+    "approach": "以「根、忆、制、品、传」五个章节组织内容，用绿色、白色与自然材料建立清爽的空间基调；中央环形装置、产品墙与餐饮体验区，把生产过程转成连续场景。",
+    "result": "形成兼顾品牌形象、产品展示与参观体验的企业展示中心方案，并完成重点空间的深化设计。",
+    "gallery": [
+      "/assets/work/ningfu/01.jpg",
+      "/assets/work/ningfu/02.jpg",
+      "/assets/work/ningfu/03.jpg",
+      "/assets/work/ningfu/04.jpg"
+    ],
+    "featured": false,
+    "order": 4,
+    "published": true
+  },
+  {
+    "title": "停翅港村新四军军部旧址展陈",
+    "slug": "tingchigang-memorial",
+    "category": "空间",
+    "client": "阜宁县停翅港村",
+    "year": "2022—2023",
+    "services": ["旧址展陈", "空间设计", "展陈视觉", "户外叙事"],
+    "summary": "在旧址与新馆之间，重建一段关于新四军军部与华中抗战的地方记忆。",
+    "cover": "/assets/work/tingchigang/01.jpg",
+    "challenge": "旧址空间分散、历史信息密集，既要保持纪念性，也要让年轻观众愿意停下来阅读。",
+    "approach": "以红色作为叙事索引，把室内展陈、户外旧址与村落路径串联；用夯土、深色木构与局部红光回应建筑年代，以图纸、实物和口述史建立多层次的观看节奏。",
+    "result": "完成室内展陈与户外纪念空间的整体叙事方案，让旧址、村落与历史在同一条路径上被重新看见。",
+    "gallery": [
+      "/assets/work/tingchigang/01.jpg",
+      "/assets/work/tingchigang/02.jpg",
+      "/assets/work/tingchigang/03.jpg",
+      "/assets/work/tingchigang/04.jpg"
+    ],
+    "featured": false,
+    "order": 5,
+    "published": true
+  }
+]

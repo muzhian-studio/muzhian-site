@@ -1,0 +1,48 @@
+---
+import Mark from "./Mark.astro";
+import site from "../data/site.json";
+---
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a class="brand" href="/" aria-label="牧之安首页">
+          <Mark />
+          <span class="brand-type">
+            <span class="brand-name">牧之安</span>
+            <span class="brand-sub">MUZHIAN STUDIO</span>
+          </span>
+        </a>
+        <p>以策略与审美，为品牌、内容与数字产品，找到恰当的位置。</p>
+      </div>
+
+      <nav class="footer-col" aria-label="页脚导航">
+        <h3>导航</h3>
+        <a href="/work/">案例</a>
+        <a href="/services/">服务</a>
+        <a href="/services/software/">软件与工具</a>
+        <a href="/studio/">关于</a>
+        <a href="/contact/">联系</a>
+      </nav>
+
+      <div class="footer-col">
+        <h3>联系</h3>
+        <a href={`mailto:${site.email}`}>{site.email}</a>
+        <a href="/company/">公司信息</a>
+        <a href="/privacy/">隐私政策</a>
+        <a href="/services/software/dingding/">丁丁看图</a>
+      </div>
+    </div>
+
+    <div class="footer-legal">
+      <div class="footer-legal-group">
+        <span>© <span data-year>2026</span> 牧之安（上海）文化创意有限公司</span>
+        <span>统一社会信用代码 91310114MAEBHDQM6J</span>
+      </div>
+      <div class="footer-legal-group">
+        <span>ICP 备案办理中</span>
+        <span>上海 · 嘉定</span>
+      </div>
+    </div>
+  </div>
+</footer>

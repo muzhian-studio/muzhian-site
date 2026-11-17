@@ -1,0 +1,52 @@
+[
+  {
+    "name": "丁丁看图",
+    "slug": "dingding",
+    "tagline": "轻一点，看清楚。",
+    "summary": "一款为 Windows 而做的轻量看图工具。图片、TGA 与 PDF 放在同一扇窗里，打开即看，不弹广告，也不上传你的文件。",
+    "platform": "Windows 10 / 11 · x64",
+    "version": "1.0",
+    "releaseDate": "2026.11",
+    "status": "available",
+    "cover": "/assets/dingding-main.jpg",
+    "screenshots": [
+      "/assets/dingding-pdf.jpg",
+      "/assets/dingding-welcome.jpg"
+    ],
+    "features": [
+      {
+        "title": "多格式，直接打开",
+        "body": "JPG、PNG、BMP、GIF、TIFF、ICO、TGA、WebP 与 PDF，一个窗口就能查看。"
+      },
+      {
+        "title": "PDF 也能看",
+        "body": "多页浏览、页面缩略图、页码跳转、适宽与整页显示，还可以导出为 PNG。"
+      },
+      {
+        "title": "以鼠标为中心缩放",
+        "body": "滚轮以鼠标位置缩放；左键框选局部放大；中键拖动平移，中键单击全屏。"
+      },
+      {
+        "title": "批量转换",
+        "body": "一次选择多张图片，输出 PNG、JPEG、BMP、TIFF 或 TGA，并支持尺寸限制。"
+      },
+      {
+        "title": "信息与 EXIF",
+        "body": "尺寸、格式、文件大小、DPI，以及相机型号、拍摄时间、曝光和焦距。"
+      },
+      {
+        "title": "无广告，不联网",
+        "body": "不弹窗、不采集、不上传。所有图片都只在本机打开与处理。"
+      }
+    ],
+    "installerUrl": "/downloads/dingding-viewer-1.0-setup.exe",
+    "portableUrl": "/downloads/dingding-viewer-1.0-portable.zip",
+    "readmeUrl": "/downloads/dingding-viewer-1.0-readme.txt",
+    "installerSize": "403 KB",
+    "portableSize": "186 KB",
+    "changelog": "2026.11 更新版。更新安装包与便携版，补充使用说明；保留本地处理、无广告、不上传文件的设计原则。",
+    "featured": true,
+    "order": 10,
+    "published": true
+  }
+]

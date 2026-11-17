@@ -1,0 +1,114 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import site from "../../data/site.json";
+
+const principles = [
+  { index: "01", title: "先想清楚，再做好看。", body: "策略不是流程里的装饰，它决定我们为什么这样设计。" },
+  { index: "02", title: "少一点，但准确一点。", body: "克制不是做减法，而是把注意力留给真正重要的部分。" },
+  { index: "03", title: "对结果负责，而不只对画面负责。", body: "从屏幕到印刷、从线上到现场，细节决定表达是否成立。" }
+];
+---
+<BaseLayout
+  page="studio"
+  title="关于｜牧之安 MUZHIAN"
+  description="牧之安（上海）文化创意有限公司，一间成立于 2025 年的独立设计工作室。品牌、视觉、数字体验与空间叙事。"
+>
+  <section class="page-hero">
+    <div class="wrap page-hero-grid">
+      <p class="section-label">STUDIO / 关于</p>
+      <div>
+        <p class="breadcrumb"><a href="/">首页</a><span class="sep">/</span><span>关于</span></p>
+        <h1>一间不大的工作室，<br>做一些<em>耐看</em>的设计。</h1>
+        <p class="page-hero-sub">
+          牧之安成立于 2025 年，工作与生活在上海。我们从理解开始——理解一门生意、一种文化、一群人的真实处境，
+          再以策略、视觉与落地，把复杂的想法整理成清晰的秩序。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap studio-grid">
+      <div class="studio-poster">
+        <p class="label">STUDIO NOTE / 001</p>
+        <blockquote>留白不是空，<br>是让重要的东西<br><em>有呼吸</em>。</blockquote>
+        <div class="studio-poster-foot">
+          <span>MUZHIAN<br />SHANGHAI</span>
+          <span>2025—</span>
+        </div>
+      </div>
+      <div class="studio-copy">
+        <h2 data-reveal>小的团队，<br>深一点的合作。</h2>
+        <p data-reveal data-reveal-delay="1">
+          我们更愿意做小而深的事：一个能被记住的名字，一套可以生长的视觉，一次让人愿意停留的体验。
+          团队不大，所以我们选择项目，也选择伙伴。
+        </p>
+        <p data-reveal data-reveal-delay="2">
+          每一个项目，由核心成员从第一次对谈到最终落地全程参与。我们相信，好的合作始于彼此愿意把问题想清楚。
+        </p>
+        <div class="studio-facts">
+          <div class="studio-fact"><strong>2025</strong><span>成立于上海</span></div>
+          <div class="studio-fact"><strong>上海 · 嘉定</strong><span>工作与生活之地</span></div>
+          <div class="studio-fact"><strong>独立</strong><span>小而深的工作方式</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--surface">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="section-label">01 / 我们相信</p>
+        <div>
+          <h2 data-reveal>克制，是为了让<br>重要的东西<em>被看见</em>。</h2>
+        </div>
+      </div>
+      <div class="capability-list">
+        {principles.map((item) => (
+          <div class="capability-row">
+            <span class="capability-index">{item.index}</span>
+            <h3 class="capability-title">{item.title}</h3>
+            <p class="capability-desc">{item.body}</p>
+            <span></span>
+            <span class="capability-arrow">·</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="section-label">02 / 公司</p>
+        <div>
+          <h2 data-reveal>牧之安（上海）<br>文化创意有限公司。</h2>
+          <p class="head-note">
+            统一社会信用代码 91310114MAEBHDQM6J。注册地址：{site.address}。
+            更完整的登记信息与经营范围见公司信息页。
+          </p>
+          <a class="text-link" href="/company/">查看公司信息 <span class="arrow" aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-section">
+    <div class="wrap contact-grid">
+      <div>
+        <h2>想认识我们，<br><em>先聊聊。</em></h2>
+        <p class="contact-copy">项目咨询、媒体与合作伙伴，都欢迎写信。</p>
+      </div>
+      <div class="contact-details">
+        <div class="contact-email">
+          <a href={`mailto:${site.email}`}>{site.email}</a>
+          <button class="copy-btn" type="button" data-copy={site.email}>复制</button>
+        </div>
+        <dl class="contact-list">
+          <div><dt>地址</dt><dd>{site.address}</dd></div>
+          <div><dt>网站</dt><dd><a href="https://www.shmuzhian.cn">www.shmuzhian.cn</a></dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

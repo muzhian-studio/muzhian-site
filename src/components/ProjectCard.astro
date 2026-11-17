@@ -1,0 +1,28 @@
+---
+interface ProjectCardProps {
+  title: string;
+  href: string;
+  category: string;
+  year?: string;
+  summary?: string;
+  cover?: string;
+  wide?: boolean;
+}
+const { title, href, category, year = "", summary = "", cover = "", wide = false } = Astro.props;
+---
+<a class:list={["project-card", { "project-card--wide": wide }]} href={href} aria-label={`查看：${title}`}>
+  <div class:list={["project-card__media", { "project-card__media--empty": !cover }]}>
+    {cover ? (
+      <img src={cover} alt={title} loading="lazy" decoding="async" />
+    ) : (
+      <span>MUZHIAN</span>
+    )}
+    <span class="project-card__arrow" aria-hidden="true">↗</span>
+  </div>
+  <div class="project-card__meta">
+    <span>{category}</span>
+    <span>{year}</span>
+  </div>
+  <h3 class="project-card__title">{title}</h3>
+  {summary && <p class="project-card__summary">{summary}</p>}
+</a>

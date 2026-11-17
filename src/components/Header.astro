@@ -1,0 +1,60 @@
+---
+import Mark from "./Mark.astro";
+
+interface Props {
+  page?: string;
+  dark?: boolean;
+}
+const { page = "", dark = false } = Astro.props;
+
+const nav = [
+  { label: "案例", href: "/work/", key: "work" },
+  { label: "服务", href: "/services/", key: "services" },
+  { label: "关于", href: "/studio/", key: "studio" },
+  { label: "联系", href: "/contact/", key: "contact" },
+];
+const mobileNav = [
+  { label: "案例", href: "/work/", index: "01", key: "work" },
+  { label: "服务", href: "/services/", index: "02", key: "services" },
+  { label: "软件与工具", href: "/services/software/", index: "02.1", key: "software" },
+  { label: "关于", href: "/studio/", index: "03", key: "studio" },
+  { label: "联系", href: "/contact/", index: "04", key: "contact" },
+];
+---
+<header class:list={["site-header", { "site-header--dark": dark }]} aria-label="网站页眉">
+  <div class="wrap header-inner">
+    <a class="brand" href="/" aria-label="牧之安首页">
+      <Mark />
+      <span class="brand-type">
+        <span class="brand-name">牧之安</span>
+        <span class="brand-sub">MUZHIAN STUDIO</span>
+      </span>
+    </a>
+
+    <nav class="desktop-nav" aria-label="主导航">
+      {nav.map((item) => (
+        <a href={item.href} aria-current={page === item.key ? "page" : undefined}>{item.label}</a>
+      ))}
+    </nav>
+
+    <a class="header-cta" href="/contact/">开始一个项目 <span class="arrow" aria-hidden="true">↗</span></a>
+
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="打开菜单">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+  <nav aria-label="移动端导航">
+    {mobileNav.map((item) => (
+      <a class:list={["mobile-nav-link", { "mobile-nav-sub": item.key === "software" }]} href={item.href}>
+        <small>{item.index}</small>{item.label}
+      </a>
+    ))}
+  </nav>
+  <div class="mobile-menu-foot">
+    <span>牧之安（上海）文化创意有限公司<br>上海 · 嘉定</span>
+    <span>MUZHIAN<br>DESIGN &amp; DIGITAL</span>
+  </div>
+</div>

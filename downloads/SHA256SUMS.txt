@@ -1,2 +1,0 @@
-﻿d535d9c11aa8a90e10ffc50ee6659f15e9620102372cc167d9fdee7b2f1842ab  dingding-viewer-1.0-portable.zip
-363cb8d35b3ef0c43c31560543b3c842ae74bb9beb37ca5449bad3b62110ff22  dingding-viewer-1.0-setup.exe

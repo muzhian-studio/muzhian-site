@@ -1,0 +1,109 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import casesData from "../../data/cases.json";
+
+export function getStaticPaths() {
+  const cases = (casesData as any[]).filter((item) => item.published !== false);
+  return cases.map((item, index) => ({
+    params: { slug: item.slug },
+    props: { project: item, next: cases.length > 1 ? cases[(index + 1) % cases.length] : null }
+  }));
+}
+
+const { project, next } = Astro.props;
+const title = `${project.title}｜案例｜牧之安 MUZHIAN`;
+const description = project.summary || project.title;
+---
+<BaseLayout page="work" title={title} description={description} ogImage={project.cover || "/assets/og-cover.jpg"}>
+  <article>
+    <header class="case-hero">
+      <div class="wrap">
+        <p class="breadcrumb">
+          <a href="/">首页</a><span class="sep">/</span>
+          <a href="/work/">案例</a><span class="sep">/</span>
+          <span>{project.title}</span>
+        </p>
+        <p class="eyebrow">{project.category || "CASE STUDY"} / {project.year || "2026"}</p>
+        <h1 class:list={[{ "is-long": project.title.length > 8 }]}>{project.title}</h1>
+        <dl class="case-meta">
+          <div><dt>客户 / 品牌</dt><dd>{project.client || "—"}</dd></div>
+          <div><dt>年份</dt><dd>{project.year || "—"}</dd></div>
+          <div><dt>服务</dt><dd>{(project.services || []).join(" / ") || "—"}</dd></div>
+          <div><dt>类别</dt><dd>{project.category || "—"}</dd></div>
+        </dl>
+      </div>
+      {project.cover && (
+        <div class="wrap">
+          <figure class="case-cover">
+            <img src={project.cover} alt={`${project.title} 项目封面`} />
+          </figure>
+        </div>
+      )}
+    </header>
+
+    <section class="case-content">
+      <div class="wrap case-content-grid">
+        <aside class="case-side">
+          <p>MUZHIAN / CASE FILE</p>
+          <p>{project.year || "2026"}</p>
+        </aside>
+        <div class="case-body">
+          {project.summary && <p class="case-summary">{project.summary}</p>}
+          {project.challenge && (
+            <section class="case-block">
+              <h2>项目背景 / 问题</h2>
+              <p>{project.challenge}</p>
+            </section>
+          )}
+          {project.approach && (
+            <section class="case-block">
+              <h2>我们做了什么</h2>
+              <p>{project.approach}</p>
+            </section>
+          )}
+          {project.result && (
+            <section class="case-block">
+              <h2>项目结果</h2>
+              <p>{project.result}</p>
+            </section>
+          )}
+          {project.gallery?.length > 0 && (
+            <div class="case-gallery">
+              {project.gallery.map((image: string, index: number) => (
+                <figure>
+                  <img src={image} alt={`${project.title} 项目图片 ${index + 1}`} decoding="async" />
+                </figure>
+              ))}
+            </div>
+          )}
+        </div>
+      </div>
+    </section>
+
+    {next && (
+      <div class="wrap">
+        <a class="case-next" href={`/work/${next.slug}/`}>
+          <span>
+            <span class="label">NEXT PROJECT / 下一个案例</span>
+            <strong>{next.title}</strong>
+          </span>
+          <span class="arrow" aria-hidden="true">↗</span>
+        </a>
+      </div>
+    )}
+  </article>
+
+  <section class="contact-section">
+    <div class="wrap contact-grid">
+      <div>
+        <h2>有一个想法，<br><em>我们聊聊。</em></h2>
+      </div>
+      <div class="contact-details">
+        <div class="contact-email">
+          <a href="mailto:lishihong@muzhian.cn">lishihong@muzhian.cn</a>
+          <button class="copy-btn" type="button" data-copy="lishihong@muzhian.cn">复制</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,151 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import site from "../../data/site.json";
+
+const capabilities = [
+  {
+    index: "01",
+    title: "品牌策略与识别",
+    en: "Brand strategy & identity",
+    desc: "从定位、命名到视觉识别，建立清晰、一致、可以延续的品牌语言。",
+    tags: ["品牌定位", "命名与话语", "视觉识别", "品牌手册"],
+    href: "",
+  },
+  {
+    index: "02",
+    title: "视觉设计与内容",
+    en: "Visual design & content",
+    desc: "让每一次露出都准确、耐看，并保持同一种气质。",
+    tags: ["平面设计", "包装物料", "数字内容", "摄影影像"],
+    href: "",
+  },
+  {
+    index: "03",
+    title: "数字体验",
+    en: "Digital experience",
+    desc: "把品牌转译成屏幕上的节奏、界面与交互，从网站到产品界面。",
+    tags: ["网站设计", "产品界面", "交互原型", "前端实现"],
+    href: "",
+  },
+  {
+    index: "04",
+    title: "软件与工具",
+    en: "Software & tools / sub-practice",
+    desc: "当设计需要被运行起来：Windows 工具、Web 应用与内部效率产品。",
+    tags: ["桌面应用", "Web 应用", "工具开发", "设计到代码"],
+    href: "/services/software/",
+  },
+  {
+    index: "05",
+    title: "展览与空间叙事",
+    en: "Exhibition & spatial narrative",
+    desc: "在真实的空间里，安排观看的路径与情绪的起伏。",
+    tags: ["策展叙事", "展陈视觉", "导视系统", "空间设计"],
+    href: "",
+  },
+];
+
+const process = [
+  { index: "01", label: "听见", text: "理解业务、受众与真实限制。" },
+  { index: "02", label: "定义", text: "找到核心命题，建立共识。" },
+  { index: "03", label: "构造", text: "建立视觉、界面与表达系统。" },
+  { index: "04", label: "落地", text: "进入真实媒介，在细节里交付。" },
+];
+---
+<BaseLayout
+  page="services"
+  title="服务｜牧之安 MUZHIAN"
+  description="牧之安的设计服务：品牌策略与识别、视觉设计与内容、数字体验、软件与工具、展览与空间叙事。"
+>
+  <section class="page-hero">
+    <div class="wrap page-hero-grid">
+      <p class="section-label">SERVICES / 能力</p>
+      <div>
+        <p class="breadcrumb"><a href="/">首页</a><span class="sep">/</span><span>服务</span></p>
+        <h1>设计是主体，<br>软件是<em>延伸</em>。</h1>
+        <p class="page-hero-sub">
+          我们从品牌和视觉出发，也把设计推进到界面、交互和代码。
+          软件不是另一条业务线，而是设计能力在数字产品里的继续。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="section-label">01 / 设计能力</p>
+        <div>
+          <h2 data-reveal>从一句话，<br>到一个完整的系统。</h2>
+          <p class="head-note" data-reveal data-reveal-delay="1">
+            我们不只交付一张好看的海报，而是帮助品牌建立一套可以持续生长的表达方式。
+          </p>
+        </div>
+      </div>
+
+      <div class="capability-list">
+        {capabilities.map((item) => (
+          item.href ? (
+            <a class="capability-row" href={item.href}>
+              <span class="capability-index">{item.index}</span>
+              <h3 class="capability-title">{item.title}<small>子目录 / {item.en}</small></h3>
+              <p class="capability-desc">{item.desc}</p>
+              <ul class="capability-tags">{item.tags.map((tag) => <li>{tag}</li>)}</ul>
+              <span class="capability-arrow" aria-hidden="true">↗</span>
+            </a>
+          ) : (
+            <div class="capability-row">
+              <span class="capability-index">{item.index}</span>
+              <h3 class="capability-title">{item.title}<small>{item.en}</small></h3>
+              <p class="capability-desc">{item.desc}</p>
+              <ul class="capability-tags">{item.tags.map((tag) => <li>{tag}</li>)}</ul>
+              <span class="capability-arrow" aria-hidden="true">↗</span>
+            </div>
+          )
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--surface">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="section-label">02 / 合作方式</p>
+        <div>
+          <h2 data-reveal>从一次对谈<br>开始。</h2>
+          <p class="head-note" data-reveal data-reveal-delay="1">
+            每个项目都从一个具体的问题开始。我们会先判断问题是否清楚，再决定一起走多远。
+          </p>
+        </div>
+      </div>
+      <div class="method-list">
+        {process.map((step) => (
+          <article class="method-item">
+            <div class="method-item__top"><span>{step.index}</span><i>STEP</i></div>
+            <h3>{step.label}</h3>
+            <p>{step.text}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-section">
+    <div class="wrap contact-grid">
+      <div>
+        <h2>有一个项目，<br><em>从一句话开始。</em></h2>
+        <p class="contact-copy">品牌、视觉、数字体验，或一个需要被做出来的软件想法，都可以写信给我们。</p>
+      </div>
+      <div class="contact-details">
+        <div class="contact-email">
+          <a href={`mailto:${site.email}`}>{site.email}</a>
+          <button class="copy-btn" type="button" data-copy={site.email}>复制</button>
+        </div>
+        <dl class="contact-list">
+          <div><dt>地址</dt><dd>{site.address}</dd></div>
+          <div><dt>状态</dt><dd>{site.availability}</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
