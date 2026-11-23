@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import "../styles/home.css";
 import ProjectCard from "../components/ProjectCard.astro";
 import Mark from "../components/Mark.astro";
 import site from "../data/site.json";
@@ -39,8 +40,13 @@ const featuredWork = [
 ].slice(0, 4);
 
 const leadSoftware = software[0];
-const heroItems = featuredWork.slice(0, 2);
-const heroImage = leadSoftware?.cover || featuredWork[0]?.cover;
+const heroItems = featuredWork.slice(0, 3);
+
+const caseYears = cases
+  .map((item) => Number.parseInt(String(item.year || "").slice(0, 4), 10))
+  .filter((year) => Number.isFinite(year));
+const archiveStart = caseYears.length ? Math.min(...caseYears) : 2025;
+const archiveRange = `${archiveStart}—${String(new Date().getFullYear()).slice(-2)}`;
 
 const capabilities = [
   {
@@ -48,7 +54,7 @@ const capabilities = [
     title: "品牌策略与识别",
     en: "Brand strategy & identity",
     desc: "从定位、命名到视觉识别，建立清晰、一致、可以延续的品牌语言。",
-    tags: ["品牌定位", "命名话语", "视觉识别", "品牌手册"],
+    tags: ["品牌定位", "命名与话语", "视觉识别", "品牌手册"],
     href: "",
   },
   {
@@ -118,8 +124,8 @@ const schema = {
       <div class="hero-copy">
         <p class="eyebrow">MUZHIAN / 牧之安 · 上海</p>
         <h1>
-          <span class="line">{site.heroLine}</span>
-          <span class="line"><em>{site.heroEmphasis}</em></span>
+          <span class="line"><span class="line__inner">{site.heroLine}</span></span>
+          <span class="line"><span class="line__inner"><em>{site.heroEmphasis}</em></span></span>
         </h1>
         <p class="hero-lead">
           {site.heroLead}
@@ -136,18 +142,24 @@ const schema = {
         </div>
       </div>
 
-      <div class="hero-ledger-wrap">
+      <div class="hero-ledger-wrap" data-hero>
         <div class="hero-disc" aria-hidden="true"></div>
         <div class="hero-ledger">
           <div class="ledger-top">
             <span><strong>INDEX</strong> / SELECTED WORK</span>
-            <span>2025—26</span>
+            <span>{archiveRange}</span>
           </div>
           <div class="ledger-list">
             {heroItems.length > 0 ? (
               heroItems.map((item, i) => (
-                <a class="ledger-item" href={item.href}>
-                  <span class="ledger-index">0{i + 1}</span>
+                <a
+                  class:list={["ledger-item", { "is-active": i === 0 }]}
+                  href={item.href}
+                  data-reel-trigger
+                  data-reel-index={i}
+                  aria-current={i === 0 ? "true" : undefined}
+                >
+                  <span class="ledger-index">{String(i + 1).padStart(2, "0")}</span>
                   <span>
                     <span class="ledger-title">{item.title}</span>
                     <span class="ledger-category">{item.category}</span>
@@ -159,18 +171,29 @@ const schema = {
             ) : (
               <p class="ledger-empty">项目档案正在整理。新的品牌、空间与数字产品案例会陆续出现在这里。</p>
             )}
-            <div class="ledger-item" aria-hidden="true">
-              <span class="ledger-index">—</span>
-              <span>
-                <span class="ledger-title">Case files</span>
-                <span class="ledger-category">持续更新 / 2026—</span>
-              </span>
-              <span class="ledger-year">∞</span>
-              <span class="ledger-arrow">·</span>
-            </div>
           </div>
+
+          {heroItems.length > 0 && (
+            <div class="ledger-reel" aria-hidden="true">
+              {heroItems.map((item, i) => (
+                <img
+                  class:list={["ledger-reel__img", { "is-active": i === 0 }]}
+                  src={item.cover}
+                  alt=""
+                  loading="eager"
+                  decoding="async"
+                  data-reel-image={i}
+                />
+              ))}
+              <span class="ledger-reel__meta">
+                <span><b data-reel-current>01</b> / {String(heroItems.length).padStart(2, "0")}</span>
+                <span data-reel-category>{heroItems[0]?.category || ""}</span>
+              </span>
+              <span class="ledger-reel__bar"><i data-reel-bar></i></span>
+            </div>
+          )}
+
           <div class="ledger-bottom">
-            {heroImage && <img src={heroImage} alt="" loading="lazy" />}
             <span>Brand / visual / digital / software.<br />A design practice in Shanghai.</span>
           </div>
         </div>
@@ -178,6 +201,14 @@ const schema = {
     </div>
     <span class="hero-side" aria-hidden="true">Independent design practice · Since 2025</span>
   </section>
+
+  <div class="capability-marquee" aria-hidden="true">
+    <div class="capability-marquee__track">
+      {[...capabilities, ...capabilities].map((item) => (
+        <span class="capability-marquee__item">{item.title}</span>
+      ))}
+    </div>
+  </div>
 
   <section class="section" id="work">
     <div class="wrap">
@@ -194,14 +225,16 @@ const schema = {
       {featuredWork.length > 1 ? (
         <div class="work-feature-grid">
           {featuredWork.map((item) => (
-            <ProjectCard
-              title={item.title}
-              href={item.href}
-              category={item.category}
-              year={item.year}
-              summary={item.summary}
-              cover={item.cover}
-            />
+            <div data-reveal>
+              <ProjectCard
+                title={item.title}
+                href={item.href}
+                category={item.category}
+                year={item.year}
+                summary={item.summary}
+                cover={item.cover}
+              />
+            </div>
           ))}
         </div>
       ) : featuredWork.length === 1 ? (
@@ -262,7 +295,7 @@ const schema = {
       <div class="capability-list">
         {capabilities.map((item) => (
           item.href ? (
-            <a class="capability-row" href={item.href}>
+            <a class="capability-row" href={item.href} data-reveal>
               <span class="capability-index">{item.index}</span>
               <h3 class="capability-title">{item.title}<small>子目录 / {item.en}</small></h3>
               <p class="capability-desc">{item.desc}</p>
@@ -270,7 +303,7 @@ const schema = {
               <span class="capability-arrow" aria-hidden="true">↗</span>
             </a>
           ) : (
-            <div class="capability-row">
+            <div class="capability-row" data-reveal>
               <span class="capability-index">{item.index}</span>
               <h3 class="capability-title">{item.title}<small>{item.en}</small></h3>
               <p class="capability-desc">{item.desc}</p>
@@ -325,7 +358,7 @@ const schema = {
       </div>
       <div class="method-list">
         {method.map((step) => (
-          <article class="method-item">
+          <article class="method-item" data-reveal>
             <div class="method-item__top"><span>{step.index}</span><i>{step.en.toUpperCase()}</i></div>
             <h3>{step.title}<small>{step.en}</small></h3>
             <p>{step.body}</p>
@@ -388,3 +421,7 @@ const schema = {
     </div>
   </section>
 </BaseLayout>
+
+<script>
+  import "../scripts/home-motion.js";
+</script>

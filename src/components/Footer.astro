@@ -1,5 +1,5 @@
 ---
-import Mark from "./Mark.astro";
+import Logo from "./Logo.astro";
 import site from "../data/site.json";
 ---
 <footer class="site-footer">
@@ -7,11 +7,7 @@ import site from "../data/site.json";
     <div class="footer-top">
       <div class="footer-brand">
         <a class="brand" href="/" aria-label="牧之安首页">
-          <Mark />
-          <span class="brand-type">
-            <span class="brand-name">牧之安</span>
-            <span class="brand-sub">MUZHIAN STUDIO</span>
-          </span>
+          <Logo variant="primary" tone="cream" class="footer-logo" loading="lazy" />
         </a>
         <p>以策略与审美，为品牌、内容与数字产品，找到恰当的位置。</p>
       </div>

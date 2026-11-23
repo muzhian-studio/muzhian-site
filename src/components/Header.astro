@@ -1,5 +1,5 @@
 ---
-import Mark from "./Mark.astro";
+import Logo from "./Logo.astro";
 
 interface Props {
   page?: string;
@@ -8,12 +8,14 @@ interface Props {
 const { page = "", dark = false } = Astro.props;
 
 const nav = [
+  { label: "首页", href: "/", key: "home" },
   { label: "案例", href: "/work/", key: "work" },
   { label: "服务", href: "/services/", key: "services" },
   { label: "关于", href: "/studio/", key: "studio" },
   { label: "联系", href: "/contact/", key: "contact" },
 ];
 const mobileNav = [
+  { label: "首页", href: "/", index: "00", key: "home" },
   { label: "案例", href: "/work/", index: "01", key: "work" },
   { label: "服务", href: "/services/", index: "02", key: "services" },
   { label: "软件与工具", href: "/services/software/", index: "02.1", key: "software" },
@@ -24,11 +26,7 @@ const mobileNav = [
 <header class:list={["site-header", { "site-header--dark": dark }]} aria-label="网站页眉">
   <div class="wrap header-inner">
     <a class="brand" href="/" aria-label="牧之安首页">
-      <Mark />
-      <span class="brand-type">
-        <span class="brand-name">牧之安</span>
-        <span class="brand-sub">MUZHIAN STUDIO</span>
-      </span>
+      <Logo variant="primary" tone={dark ? "cream" : "ink"} class="brand-logo" />
     </a>
 
     <nav class="desktop-nav" aria-label="主导航">

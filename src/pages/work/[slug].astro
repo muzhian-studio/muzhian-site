@@ -1,9 +1,12 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import casesData from "../../data/cases.json";
+import site from "../../data/site.json";
 
 export function getStaticPaths() {
-  const cases = (casesData as any[]).filter((item) => item.published !== false);
+  const cases = (casesData as any[])
+    .filter((item) => item.published !== false)
+    .sort((a, b) => (a.order ?? 10) - (b.order ?? 10));
   return cases.map((item, index) => ({
     params: { slug: item.slug },
     props: { project: item, next: cases.length > 1 ? cases[(index + 1) % cases.length] : null }
@@ -100,8 +103,8 @@ const description = project.summary || project.title;
       </div>
       <div class="contact-details">
         <div class="contact-email">
-          <a href="mailto:lishihong@muzhian.cn">lishihong@muzhian.cn</a>
-          <button class="copy-btn" type="button" data-copy="lishihong@muzhian.cn">复制</button>
+          <a href={`mailto:${site.email}`}>{site.email}</a>
+          <button class="copy-btn" type="button" data-copy={site.email}>复制</button>
         </div>
       </div>
     </div>

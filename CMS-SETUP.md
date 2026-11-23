@@ -30,10 +30,11 @@ https://www.shmuzhian.cn/admin.html
 
 - 产品名称、链接标识、标语、介绍
 - 平台、版本、更新日期、状态
-- 主图、截图
-- 功能列表（名称 + 说明）
+- 主图、截图、专业版截图
+- 免费版功能、专业版功能（名称 + 说明）
+- 专业版价格与说明
 - 安装版 / 便携版 / 使用说明地址
-- 大小、更新说明
+- 大小、字节数、更新说明
 - 在首页推荐、排序、发布
 
 ### 站点设置
@@ -44,13 +45,14 @@ https://www.shmuzhian.cn/admin.html
 
 ## 图片
 
-Pages CMS 上传到：
+Pages CMS 有两个图片库：
 
 ```text
-public/assets/work/
+public/assets/work/      案例图片
+public/assets/software/  软件产品图片
 ```
 
-网站路径为 `/assets/work/...`。
+网站路径分别为 `/assets/work/...` 和 `/assets/software/...`。
 
 ## 新增功能后
 

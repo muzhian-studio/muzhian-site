@@ -9,19 +9,29 @@
 - 后台：Pages CMS，内容落在 `src/data/`
 - 构建：Astro 静态生成，Netlify 自动部署
 
+## 品牌标志
+
+主标志为「牧之 + 朱砂印（安）」，闭环版用于页眉/页脚，开角版用于大尺寸与首页。
+
+- 标志文件：`public/assets/brand/`
+- 页眉/页脚组件：`src/components/Logo.astro`
+- 小尺寸印章：`src/components/Mark.astro`
+- 字标以思源宋体（OFL）为骨架转成 SVG 路径，不依赖网页字体
+- favicon / apple-touch-icon / og-cover 已同步更新
+
 ## 本地运行
 
 ```powershell
 # Node 22+
-pnpm install
-pnpm dev
+npm install
+npm run dev
 ```
 
 构建：
 
 ```powershell
-pnpm build
-pnpm preview
+npm run build
+npm run preview
 ```
 
 ## 目录
@@ -80,7 +90,7 @@ summary, cover, challenge, approach, result,
 gallery[], featured, order, published
 ```
 
-- `category`：品牌 / 视觉 / 数字 / 空间 / 软件
+- `category`：文博 / 公共文化 / 会展 / 企业 / 品牌 / 视觉 / 数字 / 空间 / 软件
 - `slug` 唯一，生成 `/work/<slug>/`
 - `featured` 控制首页推荐
 - `order` 越小越靠前
@@ -90,8 +100,9 @@ gallery[], featured, order, published
 ```text
 name, slug, tagline, summary, platform, version,
 releaseDate, status, cover, screenshots[], features[],
+proFeatures[], proNote, proPrice, proPriceNote, proShot,
 installerUrl, portableUrl, readmeUrl,
-installerSize, portableSize, changelog,
+installerSize, portableSize, installerBytes, portableBytes, changelog,
 featured, order, published
 ```
 

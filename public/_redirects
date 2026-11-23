@@ -2,3 +2,12 @@
 /dingding.html /services/software/dingding/ 301
 /company.html /company/ 301
 /privacy.html /privacy/ 301
+
+/downloads/dingding-viewer-1.0-setup.exe /downloads/dingding-viewer-1.1-setup.exe 301
+/downloads/dingding-viewer-1.0-portable.zip /downloads/dingding-viewer-1.1-portable.zip 301
+/downloads/dingding-viewer-1.0-readme.txt /downloads/dingding-viewer-1.1-readme.txt 301
+
+/assets/dingding-main.jpg /assets/software/dingding-main.jpg 301
+/assets/dingding-pdf.jpg /assets/software/dingding-pdf.jpg 301
+/assets/dingding-welcome.jpg /assets/software/dingding-welcome.jpg 301
+/assets/dingding-icon.png /assets/software/dingding-icon.png 301

@@ -16,6 +16,7 @@ const staticPaths = [
 
 const cases = (casesData as any[]).filter((item) => item.published !== false);
 const software = (softwareData as any[]).filter((item) => item.published !== false);
+const lastmod = new Date().toISOString().slice(0, 10);
 
 const urls = [
   ...staticPaths,
@@ -29,7 +30,7 @@ ${urls
   .map(
     (path) => `  <url>
     <loc>${base}${path}</loc>
-    <lastmod>2026-11-17</lastmod>
+    <lastmod>${lastmod}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>${path === "/" ? "1.0" : path.includes("/services/software/") ? "0.7" : "0.8"}</priority>
   </url>`

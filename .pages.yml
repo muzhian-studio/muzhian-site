@@ -1,8 +1,14 @@
 media:
   - name: work
-    label: 案例与产品图片
+    label: 案例图片
     input: public/assets/work
     output: /assets/work
+    extensions: [jpg, jpeg, png, webp]
+    rename: safe
+  - name: software
+    label: 软件产品图片
+    input: public/assets/software
+    output: /assets/software
     extensions: [jpg, jpeg, png, webp]
     rename: safe
 
@@ -26,8 +32,8 @@ content:
       - name: category
         label: 类别
         type: select
-        options: [品牌, 视觉, 数字, 空间, 软件]
-        default: 品牌
+        options: [文博, 公共文化, 会展, 企业, 品牌, 视觉, 数字, 空间, 软件]
+        default: 文博
       - name: client
         label: 客户 / 品牌
         type: string
@@ -127,6 +133,29 @@ content:
           - name: body
             label: 功能说明
             type: text
+      - name: proFeatures
+        label: 专业版功能
+        type: object
+        list: true
+        fields:
+          - name: title
+            label: 功能名称
+            type: string
+          - name: body
+            label: 功能说明
+            type: text
+      - name: proNote
+        label: 专业版说明
+        type: text
+      - name: proPrice
+        label: 专业版价格
+        type: string
+      - name: proPriceNote
+        label: 价格备注
+        type: string
+      - name: proShot
+        label: 专业版截图
+        type: image
       - name: installerUrl
         label: 安装版下载地址
         type: string
@@ -142,6 +171,12 @@ content:
       - name: portableSize
         label: 便携版大小
         type: string
+      - name: installerBytes
+        label: 安装版字节数
+        type: number
+      - name: portableBytes
+        label: 便携版字节数
+        type: number
       - name: changelog
         label: 更新说明
         type: text

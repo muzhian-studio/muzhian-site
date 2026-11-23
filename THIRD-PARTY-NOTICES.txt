@@ -1,0 +1,16 @@
+MUZHIAN — Third-party notices
+
+Logo lettering
+--------------
+The outlined wordmark is based on Noto Serif SC (and Noto Sans SC for the
+compact seal), distributed under the SIL Open Font License 1.1.
+
+- Noto Serif SC: https://fonts.google.com/noto/specimen/Noto+Serif+SC
+- SIL Open Font License 1.1: https://openfontlicense.org/
+
+The final logo is supplied as SVG paths, so the website does not load or
+redistribute the font files.
+
+Site
+----
+Astro — MIT License
