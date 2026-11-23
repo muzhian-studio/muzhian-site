@@ -736,12 +736,13 @@ h2 {
 }
 
 .hero-lead {
-  max-width: 32em;
+  max-width: 36em;
   margin-top: clamp(26px, 3vw, 36px);
   font-size: clamp(15px, 1.25vw, 17px);
   line-height: 1.95;
   color: var(--muted);
   text-wrap: pretty;
+  white-space: pre-line;
 }
 
 .hero-lead strong {
